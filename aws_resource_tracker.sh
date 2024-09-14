@@ -3,7 +3,7 @@
 #####################
 # Author: Rinku
 # Date: Sep14, 24
-# Version: v1.1
+# Version: v1.2
 # This script will report the AWS resource usage
 #####################
 
@@ -18,7 +18,7 @@ aws s3 ls
 
 # list EC2 instances
 echo "Print list of ec2 instances"
-aws ec2 describe-instances
+aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId'
 
 # list lambda
 echo "Print list of lambda functios"
